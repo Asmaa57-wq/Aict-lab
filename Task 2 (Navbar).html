@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Navbar</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #74b9ff, #a29bfe);
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #06215fb7;
+      padding: 0.5rem 1rem;
+    }
+
+    .navbar .logo {
+      font-size: 1.8rem;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .navbar ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar ul li {
+      position: relative;
+      margin: 0 1rem;
+    }
+
+    .navbar ul li a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.2rem;
+      transition: color 0.3s;
+    }
+
+    .navbar ul li a:hover {
+      color: #c41c4c;
+    }
+
+    /* Dropdown styles */
+    .dropdown ul li a:hover {
+     
+      background-color: #c41c4c;
+      border-radius: 5px;
+
+      color: #fff;
+    }
+
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      background-color: #06215fb7;
+      min-width: 150px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+      border-radius: 5px;
+      top: 100%;
+      left: 0;
+    }
+
+    .dropdown-menu a {
+      padding: 12px 16px;
+      display: block;
+      color: #fff; 
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+
+
+    .dropdown:hover .dropdown-menu {
+      display: block;
+
+      
+    }
+
+    @media (max-width: 768px) {
+      .navbar ul {
+        flex-direction: column;
+        display: none;
+        background-color: #06215fb7;
+        width: 100%;
+      }
+
+      .navbar ul.active {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+        font-size: 1.5rem;
+        color: #fff;
+        cursor: pointer;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .menu-toggle {
+        display: none;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+
+<div class="navbar">
+  <a href="#" class="logo">My Website</a>
+  <span class="menu-toggle">&#9776;</span>
+  <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li>
+      <div class="dropdown">
+        <ul>
+        <a href="#services">Services</a>
+        <div class="dropdown-menu">
+          <li><a href="#service1">Service 1</a></li>
+          <li><a href="#service2">Service 2</a></li>
+          <li><a href="#service3">Service 3</a></li>
+        </div>
+      </ul>
+      </div>
+    </li>
+    <li><a href="Task 1 (form).html">Contact Us</a></li>
+    <li><a href="#blog">Blog</a></li>
+  </ul>
+</div>
+
+<script>
+  const toggle = document.querySelector('.menu-toggle');
+  const navLinks = document.querySelector('.navbar ul');
+
+  toggle.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+  });
+</script>
+
+</body>
+</html>
